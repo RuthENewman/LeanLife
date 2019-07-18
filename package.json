@@ -1,0 +1,20 @@
+{
+  "name": "doubt-debugger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RuthENewman/DoubtDebugger.git"
+  },
+  "author": "Ruth Newman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RuthENewman/DoubtDebugger/issues"
+  },
+  "homepage": "https://github.com/RuthENewman/DoubtDebugger#readme",
+  "dependencies": {
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1"
+  }
+}
