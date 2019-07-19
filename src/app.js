@@ -11,11 +11,16 @@ let template = (
   </div>
 );
 
+let firstName = 'Ruth';
+let surname = 'Newman';
+let age = 30;
+let myLocation = 'London';
+
 let templateTwo = (
   <div>
-    <h1>Ruth Newman</h1>
-    <p>Age: 30</p>
-    <p>Location: London</p>
+    <h1>{firstName.toUpperCase()} {surname}</h1>
+    <p>Age: {age}</p>
+    <p>Location: {myLocation}</p>
   </div>
 );
 

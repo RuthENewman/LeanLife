@@ -31,23 +31,32 @@ var template = React.createElement(
   )
 );
 
+var firstName = 'Ruth';
+var surname = 'Newman';
+var age = 30;
+var myLocation = 'London';
+
 var templateTwo = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    'Ruth Newman'
+    firstName.toUpperCase(),
+    ' ',
+    surname
   ),
   React.createElement(
     'p',
     null,
-    'Age: 30'
+    'Age: ',
+    age
   ),
   React.createElement(
     'p',
     null,
-    'Location: London'
+    'Location: ',
+    myLocation
   )
 );
 
