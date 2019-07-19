@@ -2,18 +2,23 @@
 
 console.log('App.js is running');
 
+var appObject = {
+  title: 'Doubt Debugger',
+  subtitle: 'Make decisions quickly'
+};
+
 var template = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    'Doubt Debugger'
+    appObject.title
   ),
   React.createElement(
     'p',
     null,
-    'Make decisions quickly'
+    appObject.subtitle
   ),
   React.createElement(
     'ul',
@@ -64,4 +69,4 @@ var templateTwo = React.createElement(
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);

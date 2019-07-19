@@ -1,9 +1,14 @@
 console.log('App.js is running');
 
+let appObject = {
+  title: 'Doubt Debugger',
+  subtitle: 'Make decisions quickly'
+}
+
 let template = (
   <div>
-    <h1>Doubt Debugger</h1>
-    <p>Make decisions quickly</p>
+    <h1>{appObject.title}</h1>
+    <p>{appObject.subtitle}</p>
     <ul>
       <li>Yes or no?</li>
       <li>Choose between options</li>
@@ -28,4 +33,4 @@ let templateTwo = (
 
 let appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
