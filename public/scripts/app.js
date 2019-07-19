@@ -31,10 +31,12 @@ var template = React.createElement(
   )
 );
 
-var firstName = 'Ruth';
-var surname = 'Newman';
-var age = 30;
-var myLocation = 'London';
+var user = {
+  firstName: 'Ruth',
+  surname: 'Newman',
+  age: 30,
+  location: 'London'
+};
 
 var templateTwo = React.createElement(
   'div',
@@ -42,21 +44,21 @@ var templateTwo = React.createElement(
   React.createElement(
     'h1',
     null,
-    firstName.toUpperCase(),
+    user.firstName.toUpperCase(),
     ' ',
-    surname
+    user.surname
   ),
   React.createElement(
     'p',
     null,
     'Age: ',
-    age
+    user.age
   ),
   React.createElement(
     'p',
     null,
     'Location: ',
-    myLocation
+    user.location
   )
 );
 
