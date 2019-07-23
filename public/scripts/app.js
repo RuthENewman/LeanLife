@@ -4,7 +4,8 @@ console.log('App.js is running');
 
 var appObject = {
   title: 'Doubt Debugger',
-  subtitle: 'Make decisions quickly'
+  subtitle: 'Make decisions quickly',
+  options: ['Yes or no?', 'Choose between options']
 };
 
 var template = React.createElement(
@@ -15,10 +16,15 @@ var template = React.createElement(
     null,
     appObject.title
   ),
-  React.createElement(
+  appObject.subtitle && React.createElement(
     'p',
     null,
     appObject.subtitle
+  ),
+  React.createElement(
+    'p',
+    null,
+    appObject.options.length > 0 ? 'What you can do:' : 'App functionality currently not available'
   ),
   React.createElement(
     'ul',
@@ -43,28 +49,38 @@ var user = {
   location: 'London'
 };
 
+var getLocation = function getLocation(location) {
+  if (location) {
+    return React.createElement(
+      'p',
+      null,
+      'Location: ',
+      location
+    );
+  }
+};
+
 var templateTwo = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    user.firstName.toUpperCase(),
+    user.firstName ? user.firstName.toUpperCase() : 'Anonymous',
     ' ',
-    user.surname
+    React.createElement(
+      'span',
+      null,
+      user.surname && user.surname
+    )
   ),
-  React.createElement(
+  user.age && user.age >= 18 && React.createElement(
     'p',
     null,
     'Age: ',
     user.age
   ),
-  React.createElement(
-    'p',
-    null,
-    'Location: ',
-    user.location
-  )
+  getLocation(user.location)
 );
 
 var appRoot = document.getElementById('app');
