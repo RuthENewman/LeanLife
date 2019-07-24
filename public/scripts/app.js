@@ -42,23 +42,7 @@ var template = React.createElement(
   )
 );
 
-var user = {
-  firstName: 'Ruth',
-  surname: 'Newman',
-  age: 30,
-  location: 'London'
-};
-
-var getLocation = function getLocation(location) {
-  if (location) {
-    return React.createElement(
-      'p',
-      null,
-      'Location: ',
-      location
-    );
-  }
-};
+var count = 0;
 
 var templateTwo = React.createElement(
   'div',
@@ -66,23 +50,16 @@ var templateTwo = React.createElement(
   React.createElement(
     'h1',
     null,
-    user.firstName ? user.firstName.toUpperCase() : 'Anonymous',
-    ' ',
-    React.createElement(
-      'span',
-      null,
-      user.surname && user.surname
-    )
+    'Count: ',
+    count
   ),
-  user.age && user.age >= 18 && React.createElement(
-    'p',
-    null,
-    'Age: ',
-    user.age
-  ),
-  getLocation(user.location)
+  React.createElement(
+    'button',
+    { id: 'incrementButton', 'class': 'button' },
+    '+1'
+  )
 );
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);

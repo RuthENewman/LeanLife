@@ -18,28 +18,15 @@ const template = (
   </div>
 );
 
-const user = {
-  firstName: 'Ruth',
-  surname: 'Newman',
-  age: 30,
-  location: 'London'
-};
-
-const getLocation = (location) => {
-  if (location) {
-    return <p>Location: {location}</p>;
-  }
-}
+let count = 0;
 
 const templateTwo = (
-  <div>
-    <h1>{user.firstName ? user.firstName.toUpperCase() : 'Anonymous'} <span>{(user.surname) && user.surname}</span>
-    </h1>
-    {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
-    {getLocation(user.location)}
-  </div>
+ <div>
+  <h1>Count: {count}</h1>
+  <button id="incrementButton" className="button">+1</button>
+ </div>
 );
 
 const appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
