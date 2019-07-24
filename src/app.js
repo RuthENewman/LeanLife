@@ -19,12 +19,24 @@ const template = (
 );
 
 let count = 0;
-const buttonID = 'incrementButton'
+const addOne = () => {
+  console.log('Add One');
+};
+
+const minusOne = () => {
+  console.log('Minus One');
+};
+
+const reset = () => {
+  console.log('Reset');
+}
 
 const templateTwo = (
  <div>
   <h1>Count: {count}</h1>
-  <button id={buttonID} className="button">+1</button>
+  <button onClick={addOne}>+1</button>
+  <button onClick={minusOne}>-1</button>
+  <button onClick={reset}>Reset</button>
  </div>
 );
 
