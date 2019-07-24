@@ -19,11 +19,12 @@ const template = (
 );
 
 let count = 0;
+const buttonID = 'incrementButton'
 
 const templateTwo = (
  <div>
   <h1>Count: {count}</h1>
-  <button id="incrementButton" className="button">+1</button>
+  <button id={buttonID} className="button">+1</button>
  </div>
 );
 
