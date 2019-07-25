@@ -1,8 +1,13 @@
 class DoubtDebuggerApp extends React.Component {
+
   render() {
+
+    const title = 'Doubt Debugger';
+    const subtitle = 'Make decisions quickly';
+
     return (
       <div>
-        <Header />
+        <Header title={title} subtitle={subtitle}/>
         <Action />
         <Options />
         <AddOption />
@@ -15,8 +20,8 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <h1>Doubt Debugger</h1>
-        <h2>Make decisions quickly</h2>
+        <h1>{this.props.title}</h1>
+        <h2>{this.props.subtitle}</h2>
       </div>
     );
   }
@@ -50,9 +55,7 @@ class Options extends React.Component {
 class Option extends React.Component {
   render() {
     return (
-      <div>
         <li>Option component here</li>
-      </div>
     )
   }
 }

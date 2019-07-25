@@ -20,10 +20,14 @@ var DoubtDebuggerApp = function (_React$Component) {
   _createClass(DoubtDebuggerApp, [{
     key: 'render',
     value: function render() {
+
+      var title = 'Doubt Debugger';
+      var subtitle = 'Make decisions quickly';
+
       return React.createElement(
         'div',
         null,
-        React.createElement(Header, null),
+        React.createElement(Header, { title: title, subtitle: subtitle }),
         React.createElement(Action, null),
         React.createElement(Options, null),
         React.createElement(AddOption, null)
@@ -52,12 +56,12 @@ var Header = function (_React$Component2) {
         React.createElement(
           'h1',
           null,
-          'Doubt Debugger'
+          this.props.title
         ),
         React.createElement(
           'h2',
           null,
-          'Make decisions quickly'
+          this.props.subtitle
         )
       );
     }
@@ -139,13 +143,9 @@ var Option = function (_React$Component5) {
     key: 'render',
     value: function render() {
       return React.createElement(
-        'div',
+        'li',
         null,
-        React.createElement(
-          'li',
-          null,
-          'Option component here'
-        )
+        'Option component here'
       );
     }
   }]);
