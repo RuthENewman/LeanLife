@@ -25,6 +25,12 @@ var resetOptions = function resetOptions() {
   renderOptions();
 };
 
+var decide = function decide() {
+  var randomNumber = Math.floor(Math.random() * appObject.options.length);
+  var choice = appObject.options[randomNumber];
+  alert(choice);
+};
+
 var appRoot = document.getElementById('app');
 
 var renderOptions = function renderOptions() {
@@ -47,13 +53,13 @@ var renderOptions = function renderOptions() {
       appObject.options.length > 0 ? 'What you can do:' : 'Add some options to choose from!'
     ),
     React.createElement(
-      'p',
-      null,
-      appObject.options.length
+      'button',
+      { disabled: appObject.options.length === 0, onClick: decide },
+      'Debug your doubt!'
     ),
     React.createElement(
       'button',
-      { onClick: resetOptions },
+      { disabled: appObject.options.length === 0, onClick: resetOptions },
       'Remove All'
     ),
     React.createElement(

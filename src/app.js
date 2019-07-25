@@ -23,6 +23,12 @@ const resetOptions = () => {
   renderOptions();
 }
 
+const decide = () => {
+  const randomNumber = Math.floor(Math.random() * appObject.options.length);
+  const choice = appObject.options[randomNumber];
+  alert(choice);
+}
+
 const appRoot = document.getElementById('app');
 
 const renderOptions = () => {
@@ -31,13 +37,11 @@ const renderOptions = () => {
       <h1>{appObject.title}</h1>
       {appObject.subtitle && <p>{appObject.subtitle}</p>}
     <p>{appObject.options.length > 0 ? 'What you can do:' : 'Add some options to choose from!'}</p>
-      <p>{appObject.options.length}</p>
-      <button onClick={resetOptions}>Remove All</button>
+      <button disabled={ appObject.options.length === 0 } onClick={decide}>Debug your doubt!</button>
+      <button disabled={ appObject.options.length === 0 } onClick={resetOptions}>Remove All</button>
       <ol>
         {
-          appObject.options.map((option) => {
-            return <li key={option}>{option}</li>
-          })
+          appObject.options.map((option) => <li key={option}>{option}</li>)
         }
       </ol>
       <form onSubmit={handleSubmit}>
