@@ -81,6 +81,11 @@ var Action = function (_React$Component3) {
   }
 
   _createClass(Action, [{
+    key: 'handleChoice',
+    value: function handleChoice() {
+      alert('Handle choice');
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
@@ -88,7 +93,7 @@ var Action = function (_React$Component3) {
         null,
         React.createElement(
           'button',
-          null,
+          { onClick: this.handleChoice },
           'Debug your doubt!'
         )
       );
@@ -108,6 +113,11 @@ var Options = function (_React$Component4) {
   }
 
   _createClass(Options, [{
+    key: 'reset',
+    value: function reset() {
+      alert('reset');
+    }
+  }, {
     key: 'render',
     value: function render() {
 
@@ -115,9 +125,9 @@ var Options = function (_React$Component4) {
         'div',
         null,
         React.createElement(
-          'p',
-          null,
-          'Options component here'
+          'button',
+          { onClick: this.reset },
+          'Remove all options'
         ),
         React.createElement(
           'ol',

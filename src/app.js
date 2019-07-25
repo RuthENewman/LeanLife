@@ -30,21 +30,29 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
+  handleChoice() {
+    alert('Handle choice')
+  }
+
   render() {
     return (
       <div>
-        <button>Debug your doubt!</button>
+        <button onClick={this.handleChoice}>Debug your doubt!</button>
       </div>
     );
   }
 }
 
 class Options extends React.Component {
+  reset() {
+    alert('reset')
+  }
+
   render() {
 
     return (
       <div>
-        <p>Options component here</p>
+        <button onClick={this.reset}>Remove all options</button>
         <ol>
           {
             this.props.options.map((option) => <Option key={option} option={option}/> )
