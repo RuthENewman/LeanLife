@@ -1,3 +1,16 @@
+class DoubtDebuggerApp extends React.Component {
+  render() {
+    return (
+      <div>
+        <Header />
+        <Action />
+        <Options />
+        <AddOption />
+      </div>
+    )
+  }
+}
+
 class Header extends React.Component {
   render() {
     return (
@@ -30,23 +43,14 @@ class Options extends React.Component {
   }
 }
 
-class AddOptions extends React.Component {
+class AddOption extends React.Component {
   render() {
     return (
       <div>
-        <p>Add Options component here</p>
+        <p>Add Option component here</p>
       </div>
     )
   }
 }
 
-const jsx = (
-  <div>
-    <Header />
-    <Action />
-    <Options />
-    <AddOptions />
-  </div>
-);
-
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<DoubtDebuggerApp />, document.getElementById('app'));
