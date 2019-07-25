@@ -57,6 +57,6 @@ const me = new Traveler('Ruth Newman', 30, 'London');
 console.log(me.hasHomeLocation());
 console.log(me.getGreeting());
 
-const other = new Traveler();
+const other = new Traveler(undefined, undefined, 'Nowhere');
 console.log(other.hasHomeLocation());
 console.log(other.getGreeting());
