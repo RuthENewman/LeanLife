@@ -6,48 +6,47 @@ const appObject = {
   options: ['Yes or no?', 'Choose between options']
 }
 
-const template = (
-  <div>
-    <h1>{appObject.title}</h1>
-    {appObject.subtitle && <p>{appObject.subtitle}</p>}
-    <p>{appObject.options.length > 0 ? 'What you can do:' : 'App functionality currently not available'}</p>
-    <ul>
-      <li>Yes or no?</li>
-      <li>Choose between options</li>
-    </ul>
-  </div>
-);
+const handleSubmit = (event) => {
+  event.preventDefault();
 
-let count = 0;
+  const option = event.target.elements.option.value;
 
-const addOne = () => {
-  count++;
-  renderCounterApp();
+  if (option) {
+    appObject.options.push(option);
+    event.target.elements.option.value = '';
+    renderOptions();
+  }
 };
 
-const minusOne = () => {
-  count--;
-  renderCounterApp();
-};
-
-const reset = () => {
-  count = 0;
-  renderCounterApp();
+const resetOptions = () => {
+  appObject.options = [];
+  renderOptions();
 }
 
 const appRoot = document.getElementById('app');
 
-const renderCounterApp = () => {
-  const templateTwo = (
-   <div>
-    <h1>Count: {count}</h1>
-    <button onClick={addOne}>+1</button>
-    <button onClick={minusOne}>-1</button>
-    <button onClick={reset}>Reset</button>
-   </div>
+const renderOptions = () => {
+  const template = (
+    <div>
+      <h1>{appObject.title}</h1>
+      {appObject.subtitle && <p>{appObject.subtitle}</p>}
+    <p>{appObject.options.length > 0 ? 'What you can do:' : 'Add some options to choose from!'}</p>
+      <p>{appObject.options.length}</p>
+      <button onClick={resetOptions}>Remove All</button>
+      <ul>
+        <li>Yes or no?</li>
+        <li>Choose between options</li>
+      </ul>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="option"/>
+        <button>Add an option</button>
+      </form>
+    </div>
   );
 
-  ReactDOM.render(templateTwo, appRoot);
-};
+  ReactDOM.render(template, appRoot);
+}
 
-renderCounterApp();
+
+
+renderOptions();
