@@ -22,14 +22,15 @@ var DoubtDebuggerApp = function (_React$Component) {
     value: function render() {
 
       var title = 'Doubt Debugger';
-      var subtitle = 'Make decisions quickly';
+      var subtitle = 'Make decisions quickly!';
+      var options = ['Blue', 'Red', 'Green'];
 
       return React.createElement(
         'div',
         null,
         React.createElement(Header, { title: title, subtitle: subtitle }),
         React.createElement(Action, null),
-        React.createElement(Options, null),
+        React.createElement(Options, { options: options }),
         React.createElement(AddOption, null)
       );
     }
@@ -109,6 +110,7 @@ var Options = function (_React$Component4) {
   _createClass(Options, [{
     key: 'render',
     value: function render() {
+
       return React.createElement(
         'div',
         null,
@@ -120,6 +122,7 @@ var Options = function (_React$Component4) {
         React.createElement(
           'ol',
           null,
+          this.props.options.length,
           React.createElement(Option, null),
           React.createElement(Option, null)
         )

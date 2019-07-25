@@ -3,13 +3,14 @@ class DoubtDebuggerApp extends React.Component {
   render() {
 
     const title = 'Doubt Debugger';
-    const subtitle = 'Make decisions quickly';
+    const subtitle = 'Make decisions quickly!';
+    const options = ['Blue', 'Red', 'Green'];
 
     return (
       <div>
         <Header title={title} subtitle={subtitle}/>
         <Action />
-        <Options />
+        <Options options={options}/>
         <AddOption />
       </div>
     )
@@ -40,10 +41,12 @@ class Action extends React.Component {
 
 class Options extends React.Component {
   render() {
+
     return (
       <div>
         <p>Options component here</p>
         <ol>
+          {this.props.options.length}
           <Option />
           <Option />
         </ol>
