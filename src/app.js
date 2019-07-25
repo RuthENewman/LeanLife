@@ -38,10 +38,25 @@ class Options extends React.Component {
     return (
       <div>
         <p>Options component here</p>
+        <ol>
+          <Option />
+          <Option />
+        </ol>
       </div>
     )
   }
 }
+
+class Option extends React.Component {
+  render() {
+    return (
+      <div>
+        <li>Option component here</li>
+      </div>
+    )
+  }
+}
+
 
 class AddOption extends React.Component {
   render() {
