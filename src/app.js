@@ -33,10 +33,13 @@ const renderOptions = () => {
     <p>{appObject.options.length > 0 ? 'What you can do:' : 'Add some options to choose from!'}</p>
       <p>{appObject.options.length}</p>
       <button onClick={resetOptions}>Remove All</button>
-      <ul>
-        <li>Yes or no?</li>
-        <li>Choose between options</li>
-      </ul>
+      <ol>
+        {
+          appObject.options.map((option) => {
+            return <li key={option}>{option}</li>
+          })
+        }
+      </ol>
       <form onSubmit={handleSubmit}>
         <input type="text" name="option"/>
         <button>Add an option</button>

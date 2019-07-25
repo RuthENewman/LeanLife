@@ -57,18 +57,15 @@ var renderOptions = function renderOptions() {
       'Remove All'
     ),
     React.createElement(
-      'ul',
+      'ol',
       null,
-      React.createElement(
-        'li',
-        null,
-        'Yes or no?'
-      ),
-      React.createElement(
-        'li',
-        null,
-        'Choose between options'
-      )
+      appObject.options.map(function (option) {
+        return React.createElement(
+          'li',
+          { key: option },
+          option
+        );
+      })
     ),
     React.createElement(
       'form',
