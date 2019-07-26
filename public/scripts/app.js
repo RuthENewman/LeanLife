@@ -106,15 +106,19 @@ var Action = function (_React$Component3) {
 var Options = function (_React$Component4) {
   _inherits(Options, _React$Component4);
 
-  function Options() {
+  function Options(props) {
     _classCallCheck(this, Options);
 
-    return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).apply(this, arguments));
+    var _this4 = _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props));
+
+    _this4.reset = _this4.reset.bind(_this4);
+    return _this4;
   }
 
   _createClass(Options, [{
     key: 'reset',
     value: function reset() {
+      console.log(this.props.options);
       alert('reset');
     }
   }, {

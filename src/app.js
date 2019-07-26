@@ -44,7 +44,13 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+  constructor(props) {
+    super(props);
+    this.reset = this.reset.bind(this);
+  }
+
   reset() {
+    console.log(this.props.options);
     alert('reset')
   }
 
