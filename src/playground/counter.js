@@ -5,24 +5,34 @@ class Counter extends React.Component {
     this.increase = this.increase.bind(this);
     this.decrease = this.decrease.bind(this);
     this.reset = this.reset.bind(this);
+
+    this.state = {
+      count: 0
+    };
   }
 
   increase() {
-    console.log('Plus one')
+    this.setState({
+      count: this.state.count + 1,
+    })
   }
 
   decrease() {
-    console.log('Minus one')
+    this.setState({
+      count: this.state.count - 1,
+    })
   }
 
   reset() {
-    console.log('Reset')
+    this.setState({
+      count: 0,
+    })
   }
 
   render() {
     return (
       <div>
-        <h1>Count: </h1>
+        <h1>Count: {this.state.count}</h1>
         <button onClick={this.increase}>+1</button>
         <button onClick={this.decrease}>-1</button>
         <button onClick={this.reset}>reset</button>

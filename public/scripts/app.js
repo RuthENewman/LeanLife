@@ -19,23 +19,33 @@ var Counter = function (_React$Component) {
     _this.increase = _this.increase.bind(_this);
     _this.decrease = _this.decrease.bind(_this);
     _this.reset = _this.reset.bind(_this);
+
+    _this.state = {
+      count: 0
+    };
     return _this;
   }
 
   _createClass(Counter, [{
     key: 'increase',
     value: function increase() {
-      console.log('Plus one');
+      this.setState({
+        count: this.state.count + 1
+      });
     }
   }, {
     key: 'decrease',
     value: function decrease() {
-      console.log('Minus one');
+      this.setState({
+        count: this.state.count - 1
+      });
     }
   }, {
     key: 'reset',
     value: function reset() {
-      console.log('Reset');
+      this.setState({
+        count: 0
+      });
     }
   }, {
     key: 'render',
@@ -46,7 +56,8 @@ var Counter = function (_React$Component) {
         React.createElement(
           'h1',
           null,
-          'Count: '
+          'Count: ',
+          this.state.count
         ),
         React.createElement(
           'button',
