@@ -29,15 +29,19 @@ var Counter = function (_React$Component) {
   _createClass(Counter, [{
     key: 'increase',
     value: function increase() {
-      this.setState({
-        count: this.state.count + 1
+      this.setState(function (prevState) {
+        return {
+          count: prevState.count + 1
+        };
       });
     }
   }, {
     key: 'decrease',
     value: function decrease() {
-      this.setState({
-        count: this.state.count - 1
+      this.setState(function (prevState) {
+        return {
+          count: prevState.count - 1
+        };
       });
     }
   }, {
