@@ -8,7 +8,7 @@ class DoubtDebuggerApp extends React.Component {
     this.deleteOption = this.deleteOption.bind(this);
 
     this.state = {
-      options: props.options
+      options: []
     }
 
   }
@@ -89,10 +89,6 @@ class DoubtDebuggerApp extends React.Component {
   }
 }
 
-DoubtDebuggerApp.defaultProps = {
-  options: []
-}
-
 const Header = (props) => {
     return (
       <div>
@@ -124,6 +120,7 @@ const Options = (props) => {
     return (
       <div>
         <button onClick={props.reset}>Remove all options</button>
+        {props.options.length === 0 && <p>Start adding options to choose from in order to start debugging your doubt</p>}
           {
           props.options.map((option) => (
             <Option
