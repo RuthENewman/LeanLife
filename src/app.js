@@ -19,11 +19,7 @@ class DoubtDebuggerApp extends React.Component {
   }
 
   reset() {
-    this.setState(() => {
-      return {
-        options: []
-      };
-    });
+    this.setState(() => ({ options: [] }))
   }
 
   addOption(option) {
@@ -33,11 +29,9 @@ class DoubtDebuggerApp extends React.Component {
       return 'Please provide a unique value to add another option'
     }
 
-    this.setState((prevState) => {
-      return {
+    this.setState((prevState) => ({
         options: prevState.options.concat([option])
-      }
-    })
+      }));
   }
 
   render() {
@@ -130,9 +124,7 @@ class AddOption extends React.Component {
     const option = event.target.elements.option.value.trim();
     const error = this.props.addOption(option);
 
-    this.setState(() => {
-      return { error };
-    });
+    this.setState(() => ({ error }));
   }
 
   render() {

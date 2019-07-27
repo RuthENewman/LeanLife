@@ -38,9 +38,7 @@ var DoubtDebuggerApp = function (_React$Component) {
     key: 'reset',
     value: function reset() {
       this.setState(function () {
-        return {
-          options: []
-        };
+        return { options: [] };
       });
     }
   }, {
