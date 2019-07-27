@@ -19,6 +19,7 @@ var DoubtDebuggerApp = function (_React$Component) {
     _this.reset = _this.reset.bind(_this);
     _this.handleChoice = _this.handleChoice.bind(_this);
     _this.addOption = _this.addOption.bind(_this);
+    _this.deleteOption = _this.deleteOption.bind(_this);
 
     _this.state = {
       options: props.options
@@ -39,6 +40,17 @@ var DoubtDebuggerApp = function (_React$Component) {
     value: function reset() {
       this.setState(function () {
         return { options: [] };
+      });
+    }
+  }, {
+    key: 'deleteOption',
+    value: function deleteOption(option) {
+      this.setState(function (prevState) {
+        return {
+          options: prevState.options.filter(function (prevOption) {
+            return prevOption !== option;
+          })
+        };
       });
     }
   }, {
@@ -71,7 +83,8 @@ var DoubtDebuggerApp = function (_React$Component) {
         }),
         React.createElement(Options, {
           options: this.state.options,
-          reset: this.reset
+          reset: this.reset,
+          deleteOption: this.deleteOption
         }),
         React.createElement(AddOption, {
           addOption: this.addOption
@@ -131,21 +144,30 @@ var Options = function Options(props) {
       { onClick: props.reset },
       'Remove all options'
     ),
-    React.createElement(
-      'ol',
-      null,
-      props.options.map(function (option) {
-        return React.createElement(Option, { key: option, option: option });
-      })
-    )
+    props.options.map(function (option) {
+      return React.createElement(Option, {
+        key: option,
+        option: option,
+        deleteOption: props.deleteOption
+      });
+    })
   );
 };
 
 var Option = function Option(props) {
   return React.createElement(
-    'li',
+    'div',
     null,
-    props.option
+    props.option,
+    React.createElement(
+      'button',
+      {
+        onClick: function onClick() {
+          props.deleteOption(props.option);
+        }
+      },
+      'X'
+    )
   );
 };
 

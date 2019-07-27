@@ -5,6 +5,7 @@ class DoubtDebuggerApp extends React.Component {
     this.reset = this.reset.bind(this);
     this.handleChoice = this.handleChoice.bind(this);
     this.addOption = this.addOption.bind(this);
+    this.deleteOption = this.deleteOption.bind(this);
 
     this.state = {
       options: props.options
@@ -20,6 +21,12 @@ class DoubtDebuggerApp extends React.Component {
 
   reset() {
     this.setState(() => ({ options: [] }))
+  }
+
+  deleteOption(option) {
+    this.setState((prevState) => ({
+      options: prevState.options.filter((prevOption) => prevOption !== option)
+    }))
   }
 
   addOption(option) {
@@ -47,6 +54,7 @@ class DoubtDebuggerApp extends React.Component {
         <Options
         options={this.state.options}
         reset={this.reset}
+        deleteOption={this.deleteOption}
         />
         <AddOption
         addOption={this.addOption}
@@ -91,18 +99,27 @@ const Options = (props) => {
     return (
       <div>
         <button onClick={props.reset}>Remove all options</button>
-        <ol>
           {
-          props.options.map((option) => <Option key={option} option={option}/> )
-          }
-        </ol>
+          props.options.map((option) => (
+            <Option
+          key={option}
+          option={option}
+          deleteOption={props.deleteOption}
+           /> ))}
       </div>
     )
 }
 
 const Option = (props) => {
     return (
-        <li>{props.option}</li>
+        <div>
+          {props.option}
+          <button
+          onClick={() => {
+            props.deleteOption(props.option)
+          }}
+          >X</button>
+        </div>
     )
 }
 
