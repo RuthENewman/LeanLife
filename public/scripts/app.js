@@ -261,4 +261,23 @@ var AddOption = function (_React$Component6) {
   return AddOption;
 }(React.Component);
 
-ReactDOM.render(React.createElement(DoubtDebuggerApp, null), document.getElementById('app'));
+var User = function User(props) {
+  return React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'p',
+      null,
+      'Name: ',
+      props.name
+    ),
+    React.createElement(
+      'p',
+      null,
+      'Age: ',
+      props.age
+    )
+  );
+};
+
+ReactDOM.render(React.createElement(User, { name: 'Ruth', age: 30 }), document.getElementById('app'));
