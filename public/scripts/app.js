@@ -31,11 +31,15 @@ var DoubtDebuggerApp = function (_React$Component) {
   _createClass(DoubtDebuggerApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var json = localStorage.getItem('options');
-      var options = JSON.parse(json);
-      this.setState(function () {
-        return { options: options };
-      });
+      try {
+        var json = localStorage.getItem('options');
+        var options = JSON.parse(json);
+        if (options) {
+          this.setState(function () {
+            return { options: options };
+          });
+        }
+      } catch (error) {}
     }
   }, {
     key: 'componentDidUpdate',
@@ -221,6 +225,10 @@ var AddOption = function (_React$Component2) {
       this.setState(function () {
         return { error: error };
       });
+
+      if (!error) {
+        event.target.elements.option.value = '';
+      }
     }
   }, {
     key: 'render',

@@ -14,9 +14,16 @@ class DoubtDebuggerApp extends React.Component {
   }
 
   componentDidMount() {
-    const json = localStorage.getItem('options');
-    const options = JSON.parse(json);
-    this.setState(() => ({ options: options }))
+    try {
+      const json = localStorage.getItem('options');
+      const options = JSON.parse(json);
+      if (options) {
+        this.setState(() => ({ options: options }))
+      }
+    } catch (error) {
+
+    }
+
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -160,6 +167,10 @@ class AddOption extends React.Component {
     const error = this.props.addOption(option);
 
     this.setState(() => ({ error }));
+
+    if (!error) {
+      event.target.elements.option.value = '';
+    }
   }
 
   render() {
