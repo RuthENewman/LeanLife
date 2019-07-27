@@ -63,7 +63,7 @@ class DoubtDebuggerApp extends React.Component {
 }
 
 DoubtDebuggerApp.defaultProps = {
-  options: ['Blue', 'Brown', 'Orange']
+  options: []
 }
 
 const Header = (props) => {
@@ -148,4 +148,4 @@ class AddOption extends React.Component {
   }
 }
 
-ReactDOM.render(<DoubtDebuggerApp/>, document.getElementById('app'));
+ReactDOM.render(<DoubtDebuggerApp />, document.getElementById('app'));

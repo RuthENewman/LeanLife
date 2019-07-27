@@ -86,7 +86,7 @@ var DoubtDebuggerApp = function (_React$Component) {
 }(React.Component);
 
 DoubtDebuggerApp.defaultProps = {
-  options: ['Blue', 'Brown', 'Orange']
+  options: []
 };
 
 var Header = function Header(props) {
