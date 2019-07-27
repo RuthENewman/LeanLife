@@ -4,6 +4,7 @@ class DoubtDebuggerApp extends React.Component {
 
     this.reset = this.reset.bind(this);
     this.handleChoice = this.handleChoice.bind(this);
+    this.addOption = this.addOption.bind(this);
 
     this.state = {
       options: ['Blue', 'Red', 'Green']
@@ -25,6 +26,20 @@ class DoubtDebuggerApp extends React.Component {
     });
   }
 
+  addOption(option) {
+    if (!option) {
+      return 'Please enter a valid value to add a new option'
+    } else if (this.state.options.indexOf(option) > -1) {
+      return 'Please provide a unique value to add another option'
+    }
+
+    this.setState((prevState) => {
+      return {
+        options: prevState.options.concat([option])
+      }
+    })
+  }
+
   render() {
 
     const title = 'Doubt Debugger';
@@ -40,7 +55,9 @@ class DoubtDebuggerApp extends React.Component {
         options={this.state.options}
         reset={this.reset}
         />
-        <AddOption />
+        <AddOption
+        addOption={this.addOption}
+        />
       </div>
     )
   }
@@ -100,20 +117,31 @@ class Option extends React.Component {
 
 
 class AddOption extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.state = {
+      error: undefined,
+    }
+  }
 
   handleSubmit(event) {
     event.preventDefault();
 
     const option = event.target.elements.option.value.trim();
+    const error = this.props.addOption(option);
 
-    if (option) {
-      alert(option);
-    }
+    this.setState(() => {
+      return { error };
+    });
   }
 
   render() {
     return (
     <div>
+      {this.state.error && <p>{this.state.error}</p>}
       <form onSubmit={this.handleSubmit}>
         <input type="text" name="option" />
         <button type="submit">Add an option</button>
