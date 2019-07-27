@@ -29,6 +29,21 @@ var DoubtDebuggerApp = function (_React$Component) {
   }
 
   _createClass(DoubtDebuggerApp, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      console.log('Component Did Mount');
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps, prevState) {
+      console.log('Component Did Update');
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      console.log('Component Will Unmount');
+    }
+  }, {
     key: 'handleChoice',
     value: function handleChoice() {
       var randomNumber = Math.floor(Math.random() * this.state.options.length);
@@ -162,7 +177,7 @@ var Option = function Option(props) {
     React.createElement(
       'button',
       {
-        onClick: function onClick() {
+        onClick: function onClick(event) {
           props.deleteOption(props.option);
         }
       },

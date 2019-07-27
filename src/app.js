@@ -13,6 +13,18 @@ class DoubtDebuggerApp extends React.Component {
 
   }
 
+  componentDidMount() {
+    console.log('Component Did Mount');
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('Component Did Update');
+  }
+
+  componentWillUnmount() {
+    console.log('Component Will Unmount');
+  }
+
   handleChoice() {
     const randomNumber = Math.floor(Math.random() * this.state.options.length);
     const choice = this.state.options[randomNumber];
@@ -115,7 +127,7 @@ const Option = (props) => {
         <div>
           {props.option}
           <button
-          onClick={() => {
+          onClick={(event) => {
             props.deleteOption(props.option)
           }}
           >X</button>
