@@ -17,6 +17,7 @@ var DoubtDebuggerApp = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (DoubtDebuggerApp.__proto__ || Object.getPrototypeOf(DoubtDebuggerApp)).call(this, props));
 
     _this.reset = _this.reset.bind(_this);
+    _this.handleChoice = _this.handleChoice.bind(_this);
 
     _this.state = {
       options: ['Blue', 'Red', 'Green']
@@ -26,6 +27,13 @@ var DoubtDebuggerApp = function (_React$Component) {
   }
 
   _createClass(DoubtDebuggerApp, [{
+    key: 'handleChoice',
+    value: function handleChoice() {
+      var randomNumber = Math.floor(Math.random() * this.state.options.length);
+      var choice = this.state.options[randomNumber];
+      alert(choice);
+    }
+  }, {
     key: 'reset',
     value: function reset() {
       this.setState(function () {
@@ -45,7 +53,9 @@ var DoubtDebuggerApp = function (_React$Component) {
         'div',
         null,
         React.createElement(Header, { title: title, subtitle: subtitle }),
-        React.createElement(Action, { hasOptions: this.state.options.length > 0 }),
+        React.createElement(Action, { hasOptions: this.state.options.length > 0,
+          handleChoice: this.handleChoice
+        }),
         React.createElement(Options, {
           options: this.state.options,
           reset: this.reset
@@ -100,11 +110,6 @@ var Action = function (_React$Component3) {
   }
 
   _createClass(Action, [{
-    key: 'handleChoice',
-    value: function handleChoice() {
-      alert('Handle choice');
-    }
-  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
@@ -112,7 +117,7 @@ var Action = function (_React$Component3) {
         null,
         React.createElement(
           'button',
-          { onClick: this.handleChoice,
+          { onClick: this.props.handleChoice,
             disabled: !this.props.hasOptions
           },
           'Debug your doubt!'

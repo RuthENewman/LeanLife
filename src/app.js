@@ -3,11 +3,18 @@ class DoubtDebuggerApp extends React.Component {
     super(props)
 
     this.reset = this.reset.bind(this);
+    this.handleChoice = this.handleChoice.bind(this);
 
     this.state = {
       options: ['Blue', 'Red', 'Green']
     }
 
+  }
+
+  handleChoice() {
+    const randomNumber = Math.floor(Math.random() * this.state.options.length);
+    const choice = this.state.options[randomNumber];
+    alert(choice);
   }
 
   reset() {
@@ -26,7 +33,9 @@ class DoubtDebuggerApp extends React.Component {
     return (
       <div>
         <Header title={title} subtitle={subtitle}/>
-        <Action hasOptions={this.state.options.length > 0}/>
+        <Action hasOptions={this.state.options.length > 0}
+        handleChoice={this.handleChoice}
+        />
         <Options
         options={this.state.options}
         reset={this.reset}
@@ -50,14 +59,11 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
-  handleChoice() {
-    alert('Handle choice')
-  }
 
   render() {
     return (
       <div>
-        <button onClick={this.handleChoice}
+        <button onClick={this.props.handleChoice}
         disabled={!this.props.hasOptions}
         >
         Debug your doubt!
