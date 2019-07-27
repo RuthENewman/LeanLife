@@ -21,7 +21,7 @@ var DoubtDebuggerApp = function (_React$Component) {
     _this.addOption = _this.addOption.bind(_this);
 
     _this.state = {
-      options: ['Blue', 'Red', 'Green']
+      options: props.options
     };
 
     return _this;
@@ -62,13 +62,12 @@ var DoubtDebuggerApp = function (_React$Component) {
     key: 'render',
     value: function render() {
 
-      var title = 'Doubt Debugger';
       var subtitle = 'Make decisions quickly!';
 
       return React.createElement(
         'div',
         null,
-        React.createElement(Header, { title: title, subtitle: subtitle }),
+        React.createElement(Header, { subtitle: subtitle }),
         React.createElement(Action, { hasOptions: this.state.options.length > 0,
           handleChoice: this.handleChoice
         }),
@@ -86,6 +85,10 @@ var DoubtDebuggerApp = function (_React$Component) {
   return DoubtDebuggerApp;
 }(React.Component);
 
+DoubtDebuggerApp.defaultProps = {
+  options: ['Blue', 'Brown', 'Orange']
+};
+
 var Header = function Header(props) {
   return React.createElement(
     'div',
@@ -95,12 +98,16 @@ var Header = function Header(props) {
       null,
       props.title
     ),
-    React.createElement(
-      'h2',
+    props.subtitle && React.createElement(
+      'h3',
       null,
       props.subtitle
     )
   );
+};
+
+Header.defaultProps = {
+  title: 'Doubt Debugger'
 };
 
 var Action = function Action(props) {

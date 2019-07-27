@@ -7,7 +7,7 @@ class DoubtDebuggerApp extends React.Component {
     this.addOption = this.addOption.bind(this);
 
     this.state = {
-      options: ['Blue', 'Red', 'Green']
+      options: props.options
     }
 
   }
@@ -42,12 +42,11 @@ class DoubtDebuggerApp extends React.Component {
 
   render() {
 
-    const title = 'Doubt Debugger';
     const subtitle = 'Make decisions quickly!';
 
     return (
       <div>
-        <Header title={title} subtitle={subtitle}/>
+        <Header subtitle={subtitle}/>
         <Action hasOptions={this.state.options.length > 0}
         handleChoice={this.handleChoice}
         />
@@ -63,13 +62,23 @@ class DoubtDebuggerApp extends React.Component {
   }
 }
 
+DoubtDebuggerApp.defaultProps = {
+  options: ['Blue', 'Brown', 'Orange']
+}
+
 const Header = (props) => {
     return (
       <div>
         <h1>{props.title}</h1>
-        <h2>{props.subtitle}</h2>
+        {
+          props.subtitle && <h3>{props.subtitle}</h3>
+        }
       </div>
     );
+}
+
+Header.defaultProps = {
+  title: 'Doubt Debugger'
 }
 
 const Action = (props) => {
