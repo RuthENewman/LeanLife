@@ -14,11 +14,17 @@ class DoubtDebuggerApp extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Component Did Mount');
+    const json = localStorage.getItem('options');
+    const options = JSON.parse(json);
+    this.setState(() => ({ options: options }))
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('Component Did Update');
+    if (prevState.options.length !== this.state.options.length) {
+      const json = JSON.stringify(this.state.options);
+      localStorage.setItem('options', json);
+      console.log('saving data');
+    }
   }
 
   componentWillUnmount() {
