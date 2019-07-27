@@ -1,16 +1,36 @@
 class DoubtDebuggerApp extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.reset = this.reset.bind(this);
+
+    this.state = {
+      options: ['Blue', 'Red', 'Green']
+    }
+
+  }
+
+  reset() {
+    this.setState(() => {
+      return {
+        options: []
+      };
+    });
+  }
 
   render() {
 
     const title = 'Doubt Debugger';
     const subtitle = 'Make decisions quickly!';
-    const options = ['Blue', 'Red', 'Green'];
 
     return (
       <div>
         <Header title={title} subtitle={subtitle}/>
-        <Action />
-        <Options options={options}/>
+        <Action hasOptions={this.state.options.length > 0}/>
+        <Options
+        options={this.state.options}
+        reset={this.reset}
+        />
         <AddOption />
       </div>
     )
@@ -37,28 +57,23 @@ class Action extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleChoice}>Debug your doubt!</button>
+        <button onClick={this.handleChoice}
+        disabled={!this.props.hasOptions}
+        >
+        Debug your doubt!
+        </button>
       </div>
     );
   }
 }
 
 class Options extends React.Component {
-  constructor(props) {
-    super(props);
-    this.reset = this.reset.bind(this);
-  }
-
-  reset() {
-    console.log(this.props.options);
-    alert('reset')
-  }
 
   render() {
 
     return (
       <div>
-        <button onClick={this.reset}>Remove all options</button>
+        <button onClick={this.props.reset}>Remove all options</button>
         <ol>
           {
             this.props.options.map((option) => <Option key={option} option={option}/> )
