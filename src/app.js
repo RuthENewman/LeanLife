@@ -1,12 +1,6 @@
-// import subtract, { square, add } from './utils.js';
-//
-// console.log('app.js is running');
-// console.log(square(8));
-// console.log(add(64, 18));
-// console.log(subtract(100,40));
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import isSenior, {isAdult, maxMinWage} from './person.js';
+const template = React.createElement('p', {}, 'testing 123');
 
-console.log(isAdult(18));
-console.log(maxMinWage(21));
-console.log(isSenior(61));
+ReactDOM.render(template, document.getElementById('app'));
