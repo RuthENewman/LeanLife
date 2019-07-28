@@ -3,16 +3,20 @@ import AddOption from './AddOption';
 import Header from './Header';
 import Action from './Action';
 import Options from './Options';
+import OptionModal from './OptionModal';
 
 export default class DoubtDebuggerApp extends React.Component {
   state = {
-    options: []
+    options: [],
+    chosenOption: undefined
   }
 
   handleChoice = () => {
     const randomNumber = Math.floor(Math.random() * this.state.options.length);
     const choice = this.state.options[randomNumber];
-    alert(choice);
+    this.setState(() => ({
+      chosenOption: choice
+    }))
   };
 
   reset = () => {
@@ -24,6 +28,12 @@ export default class DoubtDebuggerApp extends React.Component {
       options: prevState.options.filter((prevOption) => prevOption !== option)
     }))
   };
+
+  clearChosenOption = () => {
+    this.setState(() => ({
+      chosenOption: undefined
+    }))
+  }
 
   addOption = (option) => {
     if (!option) {
@@ -79,6 +89,10 @@ export default class DoubtDebuggerApp extends React.Component {
         />
         <AddOption
         addOption={this.addOption}
+        />
+        <OptionModal
+        chosenOption={this.state.chosenOption}
+        clearChosenOption={this.clearChosenOption}
         />
       </div>
     )
