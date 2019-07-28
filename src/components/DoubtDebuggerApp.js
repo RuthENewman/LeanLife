@@ -5,19 +5,37 @@ import Action from './Action';
 import Options from './Options';
 
 export default class DoubtDebuggerApp extends React.Component {
-  constructor(props) {
-    super(props)
+  state = {
+    options: []
+  }
 
-    this.reset = this.reset.bind(this);
-    this.handleChoice = this.handleChoice.bind(this);
-    this.addOption = this.addOption.bind(this);
-    this.deleteOption = this.deleteOption.bind(this);
+  handleChoice = () => {
+    const randomNumber = Math.floor(Math.random() * this.state.options.length);
+    const choice = this.state.options[randomNumber];
+    alert(choice);
+  };
 
-    this.state = {
-      options: []
+  reset = () => {
+    this.setState(() => ({ options: [] }))
+  };
+
+  deleteOption = (option) => {
+    this.setState((prevState) => ({
+      options: prevState.options.filter((prevOption) => prevOption !== option)
+    }))
+  };
+
+  addOption = (option) => {
+    if (!option) {
+      return 'Please enter a valid value to add a new option'
+    } else if (this.state.options.indexOf(option) > -1) {
+      return 'Please provide a unique value to add another option'
     }
 
-  }
+    this.setState((prevState) => ({
+        options: prevState.options.concat([option])
+      }));
+  };
 
   componentDidMount() {
     try {
@@ -42,34 +60,6 @@ export default class DoubtDebuggerApp extends React.Component {
 
   componentWillUnmount() {
     console.log('Component Will Unmount');
-  }
-
-  handleChoice() {
-    const randomNumber = Math.floor(Math.random() * this.state.options.length);
-    const choice = this.state.options[randomNumber];
-    alert(choice);
-  }
-
-  reset() {
-    this.setState(() => ({ options: [] }))
-  }
-
-  deleteOption(option) {
-    this.setState((prevState) => ({
-      options: prevState.options.filter((prevOption) => prevOption !== option)
-    }))
-  }
-
-  addOption(option) {
-    if (!option) {
-      return 'Please enter a valid value to add a new option'
-    } else if (this.state.options.indexOf(option) > -1) {
-      return 'Please provide a unique value to add another option'
-    }
-
-    this.setState((prevState) => ({
-        options: prevState.options.concat([option])
-      }));
   }
 
   render() {
