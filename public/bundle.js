@@ -70,17 +70,18 @@
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__person_js__ = __webpack_require__(2);
-// import { square, add } from './utils.js';
+// import subtract, { square, add } from './utils.js';
 //
 // console.log('app.js is running');
 // console.log(square(8));
 // console.log(add(64, 18));
+// console.log(subtract(100,40));
 
 
 
-
-console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* isAdult */](18));
-console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["b" /* maxMinWage */](21));
+console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["b" /* isAdult */](18));
+console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["c" /* maxMinWage */](21));
+console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* default */](61));
 
 
 /***/ }),
@@ -90,11 +91,13 @@ console.log(__WEBPACK_IMPORTED_MODULE_0__person_js__["b" /* maxMinWage */](21));
 
 "use strict";
 const isAdult = (age) => age >= 18;
-/* harmony export (immutable) */ __webpack_exports__["a"] = isAdult;
+/* harmony export (immutable) */ __webpack_exports__["b"] = isAdult;
 
 const maxMinWage = (age) => age >= 25;
-/* harmony export (immutable) */ __webpack_exports__["b"] = maxMinWage;
+/* harmony export (immutable) */ __webpack_exports__["c"] = maxMinWage;
 
+
+/* harmony default export */ __webpack_exports__["a"] = ((age) => age >= 60);
 
 
 /***/ })
