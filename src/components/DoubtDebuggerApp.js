@@ -74,7 +74,7 @@ export default class DoubtDebuggerApp extends React.Component {
 
   render() {
 
-    const subtitle = 'Make decisions quickly!';
+    const subtitle = 'Make decisions quickly';
 
     return (
       <div>
