@@ -17,6 +17,8 @@
 
 .widget-header__title {
   margin: 0;
+  font-weight: 400;
+  font-size: $default-font-size;
 }
 
 .widget__message {
@@ -27,4 +29,11 @@
   margin: 0;
   font-size: $default-font-size;
   letter-spacing: .1rem;
+}
+
+
+@media (min-width: $desktop-breakpoint) {
+  .widget-header__title {
+    font-weight: bold;
+  }
 }

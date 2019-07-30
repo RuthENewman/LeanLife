@@ -4,7 +4,7 @@
   border-bottom: .6rem solid darken($colour-secondary-dark, 10%);
   padding: $default-font-size;
   margin: 0;
-  margin-bottom: $x-large-margin;
+  margin-bottom: $medium-margin;
   border-radius: $medium-border-radius;
   color: white;
   font-size: $font-size-large;
@@ -29,7 +29,7 @@
   font-weight: 500;
   padding: $small-margin;
   border-radius: $medium-border-radius;
-  font-size: $font-size-large;
+  font-size: $default-font-size;
   letter-spacing: .12rem;
 }
 
@@ -37,4 +37,14 @@
   background: none;
   border: none;
   padding: 0;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .large-button {
+    margin-bottom: $x-large-margin;
+  }
+
+  .button {
+    font-size: $font-size-large;
+  }
 }
