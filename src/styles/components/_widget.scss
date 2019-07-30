@@ -1,0 +1,30 @@
+.widget {
+  background-color: rgba($colour-secondary-light, .2);
+  border-radius: $large-border-radius;
+}
+
+.widget-header {
+  background-color: rgba($colour-secondary-light, .4);
+  color: white;
+  letter-spacing: .12rem;
+  font-size: $font-size-large;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+
+}
+
+.widget-header__title {
+  margin: 0;
+}
+
+.widget__message {
+  border-bottom: 1px solid lighten($colour-secondary-light, 40%);
+  color: white;
+  padding: $medium-margin;
+  text-align: center;
+  margin: 0;
+  font-size: $default-font-size;
+  letter-spacing: .1rem;
+}

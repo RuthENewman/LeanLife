@@ -79,21 +79,25 @@ export default class DoubtDebuggerApp extends React.Component {
     return (
       <div>
         <Header subtitle={subtitle}/>
-        <Action hasOptions={this.state.options.length > 0}
-        handleChoice={this.handleChoice}
-        />
-        <Options
-        options={this.state.options}
-        reset={this.reset}
-        deleteOption={this.deleteOption}
-        />
-        <AddOption
-        addOption={this.addOption}
-        />
-        <OptionModal
-        chosenOption={this.state.chosenOption}
-        clearChosenOption={this.clearChosenOption}
-        />
+        <div className="container">
+          <Action hasOptions={this.state.options.length > 0}
+          handleChoice={this.handleChoice}
+          />
+          <div className="widget">
+            <Options
+            options={this.state.options}
+            reset={this.reset}
+            deleteOption={this.deleteOption}
+            />
+            <AddOption
+            addOption={this.addOption}
+            />
+          </div>
+          <OptionModal
+          chosenOption={this.state.chosenOption}
+          clearChosenOption={this.clearChosenOption}
+          />
+        </div>
       </div>
     )
   }

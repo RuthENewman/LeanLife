@@ -1,0 +1,40 @@
+.large-button {
+  background-color: $colour-secondary-dark;
+  border: none;
+  border-bottom: .6rem solid dark($colour-secondary-dark, 10%);
+  padding: $default-font-size;
+  margin: 0;
+  margin-bottom: $x-large-margin;
+  border-radius: $medium-border-radius;
+  color: white;
+  font-size: $font-size-large;
+  text-transform: uppercase;
+  font-weight: 500;
+  width: 100%;
+
+    &:active, &:hover, &:focus {
+      outline: none;
+    }
+}
+
+.large-button:disabled {
+  opacity: .5;
+}
+
+.button {
+  background-color: $colour-secondary-dark;
+  border: none;
+  border-bottom: .3rem solid darken($colour-secondary-dark, 10%);
+  color: white;
+  font-weight: 500;
+  padding: $small-margin;
+  border-radius: $medium-border-radius;
+  font-size: $font-size-large;
+  letter-spacing: .12rem;
+}
+
+.button--link {
+  background: none;
+  border: none;
+  padding: 0;
+}
