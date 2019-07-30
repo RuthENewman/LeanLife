@@ -1,0 +1,27 @@
+.add-option-error {
+  color: white;
+  font-style: italic;
+  margin: $medium-margin;
+  padding: 0 $medium-margin;
+  font-size: $default-font-size;
+  letter-spacing: .12rem;
+}
+
+.add-option {
+  display: flex;
+}
+
+.add-option__input {
+  background-color: $colour-secondary-light;
+  border-bottom: .3rem solid darken($colour-secondary-dark, 10%);
+  color: white;
+  flex-grow: 1;
+  margin-right: $small-margin;
+  padding: $small-margin;
+  font-size: $font-size-large;
+  letter-spacing: .13rem;
+
+    &:active, &:hover, &:focus {
+      outline: none;
+    }
+}

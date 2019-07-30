@@ -12,6 +12,10 @@ body {
 
 button {
   cursor: pointer;
+
+      &:active, &:hover, &:focus {
+        outline: none;
+      }
 }
 
 button:disabled {
