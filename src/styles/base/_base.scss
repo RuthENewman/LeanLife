@@ -4,11 +4,8 @@ html {
 }
 
 body {
-  background: linear-gradient(
-  to right,
-  rgba($colour-secondary-light, .3),
-  rgba($colour-secondary-dark,.3));
   font-family: Helvetica, Arial, sans-serif;
+  font-size: $default-font-size;
 }
 
 button {
