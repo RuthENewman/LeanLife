@@ -4,3 +4,9 @@
   padding: 0 $default-font-size;
   font-size: $default-font-size;
 }
+
+@media (max-width: 45rem) {
+  * {
+    max-width: 50rem;
+  }
+}
