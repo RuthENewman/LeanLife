@@ -37,6 +37,10 @@ const NotFound = () => (
 const Header = () => (
   <header>
     <h1>Lean Life</h1>
+    <Link to="/">Home</Link>
+    <Link to="/create">Add an expense</Link>
+    <Link to="/edit">Edit an expense</Link>
+    <Link to="/help">Help</Link>
   </header>
 )
 
