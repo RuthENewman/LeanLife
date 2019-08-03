@@ -11,7 +11,7 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-store.dispatch(addExpense({ description: 'Council tax', amount: 4500 }));
+store.dispatch(addExpense({ description: 'Council tax bill', amount: 4500 }));
 store.dispatch(addExpense({ description: 'Gas and lekkie bill', amount: 9300 }));
 store.dispatch(setTextFilter('bill'));
 setTimeout(() => {
