@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
-
 const now = moment();
 console.log(now.format('dddd Do MMMM YYYY'));
 
