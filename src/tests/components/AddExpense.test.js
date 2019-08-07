@@ -3,13 +3,13 @@ import { shallow } from 'enzyme';
 import { AddExpense } from '../../components/AddExpense';
 import expenses from '../fixtures/expenses';
 
-let onSubmit, history, wrapper;
+let addExpense, history, wrapper;
 
 beforeEach(() => {
-  onSubmit = jest.fn();
+  addExpense = jest.fn();
   history = { push: jest.fn() };
   wrapper = shallow(<AddExpense
-    onSubmit={onSubmit} history={history}
+    addExpense={addExpense} history={history}
     />);
 });
 
@@ -20,5 +20,5 @@ test('renders the Add Expense Page', () => {
 test('handles submit', () => {
   wrapper.find('ExpenseForm').prop('onSubmit')(expenses[0]);
   expect(history.push).toHaveBeenLastCalledWith('/');
-  expect(onSubmit).toHaveBeenLastCalledWith(expenses[0]);
+  expect(addExpense).toHaveBeenLastCalledWith(expenses[0]);
 })
