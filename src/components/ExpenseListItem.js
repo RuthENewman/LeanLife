@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import numeral from 'numeral';
-import '../locales/sterling.js';
+import 'numeral/locales/en-gb';
 
 const ExpenseListItem = ({ id, description, amount, createdAt }) => {
   numeral.locale('en-gb');
