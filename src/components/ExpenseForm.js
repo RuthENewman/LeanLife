@@ -95,6 +95,7 @@ export default class ExpenseForm extends React.Component {
           onFocusChange={this.onFocusChange}
           numberOfMonths={1}
           isOutsideRange={() => false}
+          displayFormat={() => "DD/MM/Y"}
           />
           <textarea
           placeholder="Add a note for your expense"
