@@ -48,7 +48,7 @@ export class ExpenseListFilters extends React.Component {
           showClearDates={true}
           numberOfMonths={1}
           isOutsideRange={() => false}
-          isplayFormat={() => moment.localeData('en-GB').longDateFormat('L')}
+          displayFormat={() => "DD/MM/Y"}
         />
       </div>
     );
