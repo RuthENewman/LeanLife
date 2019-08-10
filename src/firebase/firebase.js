@@ -12,6 +12,20 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-firebase.database().ref().set({
-  name: 'Ruth Newman'
+const database = firebase.database();
+
+database.ref().set({
+  name: 'Ruth Newman',
+  age: 30,
+  openToNewOpportunities: true,
+  location: {
+    city: 'London',
+    country: 'United Kingdom'
+  }
+});
+
+database.ref('location/city').set('Manchester');
+database.ref('attributes').set({
+  height: '5ft 6in',
+  shoeSize: 6,
 });
