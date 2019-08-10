@@ -29,3 +29,5 @@ database.ref('attributes').set({
   height: '5ft 6in',
   shoeSize: 6,
 });
+
+console.log('request made to change data');
