@@ -22,12 +22,19 @@ database.ref().set({
     city: 'London',
     country: 'United Kingdom'
   }
+}).then(() => {
+  console.log('Data saved to the database');
+}).catch((error) => {
+  console.log('Failed to save correctly: ', error);
 });
 
-database.ref('location/city').set('Manchester');
+// database.ref('location/city').set('Manchester');
+
 database.ref('attributes').set({
   height: '5ft 6in',
   shoeSize: 6,
+}).then(() => {
+  console.log('Second time setting data to the database')
+}).catch((error) => {
+  console.log('Failed to save the second set of data: ', error);
 });
-
-console.log('request made to change data');
