@@ -14,26 +14,26 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-database.ref('expenses').push({
-  description: 'Groceries',
-  amount: 1245,
-  note: '',
-  createdAt: 43785234325984
-});
+database.ref('expenses')
+  .once('value')
+  .then((snapshot) => {
+    const expenses = [];
 
-database.ref('expenses').push({
-  description: 'Rent',
-  amount: 70000,
-  note: '',
-  createdAt: 23464975398
-});
+    snapshot.forEach((expense) => {
+      expenses.push({
+        id: expense.key,
+        ...expense.val()
+      });
+    });
+    console.log(expenses);
+  });
 
-database.ref('expenses').push({
-  description: 'Zone 3 Travelcard',
-  amount: 3599,
-  note: '',
-  createdAt: 43785234325984
-});
+// database.ref('expenses').push({
+//   description: 'Groceries',
+//   amount: 1245,
+//   note: '',
+//   createdAt: 43785234325984
+// });
 
 // database.ref('notes/-LlxPn8KvVgMdaVxulVX').remove();
 
