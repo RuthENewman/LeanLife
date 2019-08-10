@@ -17,7 +17,11 @@ const database = firebase.database();
 database.ref().set({
   name: 'Ruth Newman',
   age: 30,
-  openToNewOpportunities: true,
+  stressLevel: 9,
+  job: {
+    title: 'Software Developer',
+    company: 'Google'
+  },
   location: {
     city: 'London',
     country: 'United Kingdom'
@@ -28,13 +32,17 @@ database.ref().set({
   console.log('Failed to save correctly: ', error);
 });
 
-// database.ref('location/city').set('Manchester');
+// database.ref('attributes').set(null);
 
-database.ref('attributes').set({
-  height: '5ft 6in',
-  shoeSize: 6,
-}).then(() => {
-  console.log('Second time setting data to the database')
-}).catch((error) => {
-  console.log('Failed to save the second set of data: ', error);
+database.ref().update({
+  stressLevel: 6,
+  'location/city': 'Manchester',
+  'job/company': 'The Co-op'
 });
+
+// database.ref('openToNewOpportunities').remove()
+//   .then(() => {
+//     console.log('Data removed from the database');
+//   }).catch((error) => {
+//     console.log('Unable to remove data from the database', error);
+//   })
