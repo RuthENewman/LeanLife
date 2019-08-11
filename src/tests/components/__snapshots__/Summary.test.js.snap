@@ -5,7 +5,9 @@ exports[`renders Summary with multiple expenses 1`] = `
   <h3>
     Viewing 
     3
-     expenses totalling 
+     
+    expenses
+     totalling 
     £27.03
     .
   </h3>
@@ -17,7 +19,9 @@ exports[`renders Summary with one expense 1`] = `
   <h3>
     Viewing 
     1
-     expenses totalling 
+     
+    expense
+     totalling 
     £5.99
     .
   </h3>
