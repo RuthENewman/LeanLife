@@ -1,7 +1,7 @@
 .page-header {
   background: #f7f7f7;
   margin-bottom: $large-margin;
-  padding: $large-margin 0;
+  padding: $medium-margin 0;
 }
 
 .page-header__actions {
@@ -10,8 +10,11 @@
 
 .page-header__title {
   font-weight: 300;
-  font-size: $font-size-large;
-  margin: 0;
+  font-size: $font-size-v-large;
+  margin: 0 0 0 $small-margin;
+  @media (min-width: $desktop-breakpoint) {
+    margin: 0;
+  }
   span {
     font-weight: 700;
     color: $teal;

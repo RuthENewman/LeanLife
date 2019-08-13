@@ -54,7 +54,7 @@ export default class ExpenseForm extends React.Component {
     event.preventDefault();
     if (!this.state.description || !this.state.amount) {
       this.setState(() => ({
-        error: "Please provide a description and amount"
+        error: "Please provide a description and an amount"
       }));
     } else {
       this.setState(() => ({
@@ -72,8 +72,8 @@ export default class ExpenseForm extends React.Component {
   render() {
     return (
       <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.handleSubmit}>
+        {this.state.error && <p className="form__error">{this.state.error}</p>}
+        <form className="form" onSubmit={this.handleSubmit}>
           <input
             className="text-input"
             type="text"
@@ -104,7 +104,9 @@ export default class ExpenseForm extends React.Component {
             value={this.state.note}
             onChange={this.onNoteChange}
           />
-          <button>Add Expense</button>
+          <div>
+            <button className="button">Save changes</button>
+          </div>
         </form>
       </div>
     );

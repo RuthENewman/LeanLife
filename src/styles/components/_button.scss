@@ -1,5 +1,5 @@
 .button {
-  background: $mid-blue;
+  background: $teal;
   border: none;
   border-radius: $medium-border-radius;
   color: white;
@@ -13,4 +13,9 @@
 
 .button--link {
   background: none;
+}
+
+.button--secondary {
+  background: $mid-blue;
+  margin: 0 $small-margin 0 $small-margin;
 }
