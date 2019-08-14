@@ -5,7 +5,7 @@
 
   @media (min-width: $desktop-breakpoint) {
     flex-direction: row;
-    margin-bottom: $large-margin;
+    margin: 0 $large-margin 0 $small-margin;
   }
 }
 

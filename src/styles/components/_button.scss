@@ -9,6 +9,7 @@
   line-height: 1;
   padding: $small-margin $medium-margin;
   text-decoration: none;
+  margin: 0 $small-margin 0 $small-margin;
 }
 
 .button--link {
@@ -17,5 +18,5 @@
 
 .button--secondary {
   background: $mid-blue;
-  margin: 0 $small-margin 0 $small-margin;
+  margin: 0 $medium-margin 0 $medium-margin;
 }
